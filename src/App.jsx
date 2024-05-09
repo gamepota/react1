@@ -1,26 +1,29 @@
-function App() {
-  // javascript review
+function App(props) {
+  // object : {}
+  //  {} 안에 property명 : property값 쌍들이 작성됨
+  let a = {};
+  let b = { name: "흥민" };
+  let c = { address: "신촌", city: "서울", country: "한국" };
 
-  // javascript data type
-  let a; // 값이 할당되지 않으면 undefined
-  console.log("a", typeof a);
-  let b = "문자열 타입"; // string
-  console.log("b", typeof b);
-  let c = 3; // number
-  console.log("c", typeof c);
-  let d = 3.14; // number
-  console.log("d", typeof d);
-  let e = true; // boolean
-  console.log("e", typeof e);
+  console.log("a", a);
+  console.log("b", b);
+  console.log("c", c);
 
-  let f = {}; // object
-  console.log("f", typeof f);
+  console.log("b의 name", b.name);
+  console.log("c의 address", c.address);
 
-  let g = function () {}; // function
-  console.log("g", typeof g);
-  g = {};
-  console.log("g", typeof g);
-  return <div></div>;
+  console.log("b의 name", b["name"]);
+  console.log("c의 address", c["address"]);
+
+  b.name = "강인";
+  console.log("b의 name", b.name);
+
+  // 없는 프로퍼티에도 접근 가능
+  console.log("b의 city", b.city); // undefined
+  b.city = "부산"; // city 프로퍼티 추가됨
+  b.address = "강남"; // address 프로퍼티 추가됨
+
+  console.log("b", b);
 }
 
 export default App;
