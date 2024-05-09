@@ -27,7 +27,7 @@ function App() {
 
   // component 사용시 종료 태그 생략할 수 없음
   //br 같은 빈요소는 시작태그에서 꼭 종료
-
+  //a
   return (
     <>
       <div>
