@@ -1,64 +1,56 @@
 import React from "react";
 
 function App(props) {
-  // 나머지 모두 문법으로 객체 복사
-
   const a = {
-    name: "son",
-    age: 33,
-    city: "london",
+    name: "John",
+    age: 44,
+    address: {
+      street: "Lorem Ipsum",
+      city: "seoul",
+    },
   };
-  const b = a; // a와 b는 같은 객체 참조
-  b.age = 44;
-  console.log("b.age", b.age); // 44
+
+  // 얕은 복사 (shallow copy)
+  const { ...b } = a;
+  b.age = 55;
+  console.log("b.age", b.age); // 55
   console.log("a.age", a.age); // 44
 
-  const c = {
-    name: a.name,
-    age: a.age,
-    city: a.city,
+  b.address.city = "busan";
+  console.log("a.address.city", a.address.city); // busan
+  console.log("b.address.city", b.address.city); // busan
+
+  // 깊은 복사 (deep copy)
+  // 얕은 복사를 여러번 해서 해결
+  const { ...c } = a; // 얕은 복사
+  const { ...address1 } = a.address; // 얕은 복사
+  c.address = address1; // 깊은 복사
+  c.address.city = "london";
+  console.log("a.address.city", a.address.city); // busan
+  console.log("c.address.city", c.address.city); // london
+
+  // 연습; 깊은 복사
+  const d = {
+    company: {
+      name: "apple",
+      location: "us",
+    },
+    name: "iphone",
+    price: 300,
   };
-  c.age = 55;
-  console.log("c.age", c.age); // 55
-  console.log("a.age", a.age); // 44
 
-  // 객체의 각 프로퍼티를 복사
-  const { ...d } = a;
-  d.age = 66;
-  console.log("d.age", d.age); // 66
-  console.log("a.age", a.age); // 44
+  const { ...e } = d;
+  const { ...company1 } = d.company;
+  // 코드 작성 : d 객체를 e 객체로 깊은 복사
+  e.company = company1;
+  e.name = "galaxy";
+  e.company.name = "samsung";
 
-  // 연습:
-  const e = {
-    name: "lee",
-    country: "korea",
-    team: "paris",
-    salary: 700,
-    city: "seoul",
-  };
-  // 코드 작성!
-  const { ...f } = e;
+  console.log("d.name", d.name); // iphone
+  console.log("d.company.name", d.company.name); // apple
+  console.log("e.name", e.name); // galaxy
+  console.log("e.company.name", e.company.name); // samsung
 
-  e.city = "busan";
-  // {
-  //   name: "lee",
-  //     country: "korea",
-  //     team: "paris",
-  //     salary: 700,
-  //     city: "busan",
-  // }
-  console.log(e);
-  /*
-  {
-    name: "lee",
-    country: "korea",
-    team: "paris",
-    salary: 700,
-    city: "seoul",
-  }
-   */
-
-  console.log(f);
   return <div></div>;
 }
 
