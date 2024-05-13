@@ -1,16 +1,14 @@
 import React from "react";
-import { action1, action2, action3, MyComp as YourComp } from "./MyComps.jsx";
-import { HerComp } from "./HerComp.jsx";
+import { ArrowComp, MyComp, YourComp } from "./MyComps.jsx";
 
 function App(props) {
-  action1();
-  action2();
-  action3();
   return (
     <div>
+      <MyComp />
       <YourComp />
-      <HerComp />
+      <ArrowComp />
     </div>
   );
 }
+
 export default App;
