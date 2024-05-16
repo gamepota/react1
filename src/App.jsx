@@ -17,6 +17,9 @@ function App(props) {
   function handleClick4() {
     axios.get("/api/main42/sub4").then((res) => console.log(res.data));
   }
+  function handleClick5() {
+    axios.get("/api/main42/sub5").then((res) => console.log(res.data));
+  }
 
   return (
     <div>
@@ -31,6 +34,7 @@ function App(props) {
       <br />
       <button onClick={handleClick4}>JSON 응답 반디</button>
       <br />
+      <button onClick={handleClick5}>JSON 응답 받기</button>
     </div>
   );
 }
