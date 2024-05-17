@@ -9,7 +9,14 @@ import {
 function SpringRoot() {
   return (
     <div>
-      <div style={{ padding: "10px", backgroundColor: "#eee" }}>
+      <div
+        style={{
+          padding: "10px",
+          backgroundColor: "#eee",
+          display: "flex",
+          gap: "5px",
+        }}
+      >
         <div>
           <a href="/spring/learn">LEARN</a>
         </div>
