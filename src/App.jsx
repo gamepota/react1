@@ -5,7 +5,7 @@ function App(props) {
   return (
     <ChakraProvider>
       <Button sx={{ color: "orange" }} colorScheme={"blue"}>
-        Lorem.
+        Lorem.ff
       </Button>
     </ChakraProvider>
   );
