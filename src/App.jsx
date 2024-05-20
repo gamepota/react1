@@ -16,7 +16,7 @@ function App(props) {
 
   const fileNames = [];
   for (let i = 0; i < file.length; i++) {
-    fileNames.push(<li>{file.item(i)}</li>);
+    fileNames.push(<li>{file.item(i).name}</li>);
   }
 
   return (
